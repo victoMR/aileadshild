@@ -1,0 +1,27 @@
+compatibility_date = "2024-04-01"
+
+name = "ai-lead-shield"
+type = "javascript"
+account_id = ""
+workers_dev = true
+route = ""
+zone_id = ""
+
+[docs]
+source = "README.md"
+
+[build]
+command = "npm run build"
+cwd = "./"
+watch_paths = ["src/**/*.ts", "src/**/*.tsx"]
+
+[build.upload]
+format = "modules"
+main = "./.next/server/edge.js"
+
+[env.production]
+name = "ai-lead-shield-prod"
+vars = { ENVIRONMENT = "production" }
+
+[[triggers.crons]]
+cron = "*/30 * * * *"
