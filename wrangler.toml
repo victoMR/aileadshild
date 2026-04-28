@@ -4,22 +4,9 @@ compatibility_flags = ["nodejs_compat"]
 name = "ai-lead-shield"
 main = ".open-next/worker.js"
 assets = { directory = ".open-next/assets", binding = "ASSETS" }
-account_id = ""
 workers_dev = true
-route = ""
-zone_id = ""
-
-[docs]
-source = "README.md"
 
 [build]
 command = "npm run build:cf"
 cwd = "./"
-watch_paths = ["src/**/*.ts", "src/**/*.tsx"]
 
-[env.production]
-name = "ai-lead-shield-prod"
-vars = { ENVIRONMENT = "production" }
-
-[[triggers.crons]]
-cron = "*/30 * * * *"
