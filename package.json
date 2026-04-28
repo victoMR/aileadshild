@@ -4,9 +4,10 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "npx @opennextjs/cloudflare build",
+    "prebuild": "next build",
+    "build": "npx @opennextjs/cloudflare build --skipNextBuild",
     "build:next": "next build",
-    "build:cf": "npx @opennextjs/cloudflare build",
+    "build:cf": "npx @opennextjs/cloudflare build --skipNextBuild",
     "start": "next start",
     "lint": "eslint"
   },
