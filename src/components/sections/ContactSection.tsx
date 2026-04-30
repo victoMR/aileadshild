@@ -61,7 +61,7 @@ export function ContactSection() {
               <span className="text-xl">📸</span>
               <div>
                 <div className="text-xs text-white/45 uppercase">Instagram</div>
-                <div className="text-white">@automatizaciones_ai</div>
+                <div className="text-white">@automatizaciones_gohighlevel</div>
               </div>
             </a>
           </div>

@@ -17,7 +17,7 @@ export const SOCIAL_LINKS = {
   whatsapp: "https://wa.me/524423224935",
   facebook:
     "https://www.facebook.com/profile.php?id=61559314284043",
-  instagram: "https://www.instagram.com/automatizaciones_ai/",
+  instagram: "https://www.instagram.com/automatizaciones_gohighlevel/",
 };
 
 export const CONTACT_INFO = {

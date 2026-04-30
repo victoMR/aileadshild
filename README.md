@@ -213,7 +213,7 @@ wrangler deploy
 - **Email:** contact@aileadshield.com.mx
 - **WhatsApp:** [+52 442 322 4935](https://wa.me/524423224935)
 - **Facebook:** [AI Lead Shield](https://www.facebook.com/profile.php?id=61559314284043)
-- **Instagram:** [@automatizaciones_ai](https://www.instagram.com/automatizaciones_ai/)
+- **Instagram:** [@automatizaciones_gohighlevel](https://www.instagram.com/automatizaciones_gohighlevel/)
 
 ## 📚 Convenciones de Código
 
