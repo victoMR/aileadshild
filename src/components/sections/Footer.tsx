@@ -1,103 +1,101 @@
 import Link from "next/link";
-import { SITE_NAME, SOCIAL_LINKS } from "@/lib/constants/site";
+import { BookingLink } from "@/components/common/BookingLink";
+import { SOCIAL_LINKS } from "@/lib/constants/site";
 
 export function Footer() {
-  const year = new Date().getFullYear();
-
   return (
-    <footer className="border-t border-cyan-500/20 py-12 md:py-16 px-4 md:px-8 lg:px-12">
-      <div className="max-w-7xl mx-auto text-center">
-        <Link href="/" className="inline-block font-black text-2xl text-cyan-400 mb-2 uppercase tracking-wider">
-          {SITE_NAME}
-        </Link>
-
-        <p className="text-white/45 italic text-sm mb-8">
-          Sapere Aude — Atrévete a saber
-        </p>
-
-        <div className="flex flex-wrap justify-center gap-6 md:gap-8 mb-8 text-sm">
-          <Link
-            href="/faqs"
-            className="text-white/45 hover:text-cyan-400 transition-colors"
-          >
-            FAQs
-          </Link>
-          <Link
-            href="/privacy"
-            className="text-white/45 hover:text-cyan-400 transition-colors"
-          >
-            Políticas de Privacidad
-          </Link>
-          <a
-            href={SOCIAL_LINKS.whatsapp}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-white/45 hover:text-cyan-400 transition-colors"
-          >
-            WhatsApp
-          </a>
-          <a
-            href="#contacto"
-            className="text-white/45 hover:text-cyan-400 transition-colors"
-          >
-            Contacto
-          </a>
+    <footer id="footer">
+      <div className="container">
+        <div className="footer-grid">
+          <div className="footer-brand">
+            <Link href="/" className="logo logo--text-only">
+              AI LEAD<span>SHIELD</span>
+            </Link>
+            <p className="footer-tag">Sapere Aude — Atrévete a saber. Ingeniería de ventas con IA empresarial.</p>
+            <div className="footer-socials">
+              <a href={SOCIAL_LINKS.whatsapp} aria-label="WhatsApp">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M17.5 14.4c-.3-.2-1.7-.8-2-.9-.3-.1-.4-.1-.6.1l-.8.9c-.1.2-.3.2-.6.1-.3-.1-1.2-.5-2.3-1.5-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6.1-.1.3-.4.4-.5.1-.2.2-.3.3-.5 0-.2 0-.4 0-.5-.1-.2-.6-1.4-.8-2-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.2.3-.9.9-.9 2.1 0 1.2.9 2.4 1 2.6.1.2 1.8 2.8 4.4 3.9.6.3 1.1.4 1.5.5.6.2 1.2.2 1.6.1.5-.1 1.4-.6 1.6-1.1.2-.5.2-1 .1-1.1zM12 2C6.5 2 2 6.5 2 12c0 1.7.4 3.3 1.2 4.7L2 22l5.4-1.4c1.4.7 2.9 1.1 4.6 1.1 5.5 0 10-4.5 10-10S17.5 2 12 2z" />
+                </svg>
+              </a>
+              <a href={SOCIAL_LINKS.facebook} aria-label="Facebook">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M22 12c0-5.5-4.5-10-10-10S2 6.5 2 12c0 5 3.7 9.1 8.4 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.5h-1.3c-1.2 0-1.6.8-1.6 1.6V12h2.8l-.4 2.9h-2.3v7c4.7-.7 8.4-4.8 8.4-9.9z" />
+                </svg>
+              </a>
+              <a href="mailto:contact@aileadshield.com.mx" aria-label="Email">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                  <polyline points="22,6 12,13 2,6" />
+                </svg>
+              </a>
+              <a href={SOCIAL_LINKS.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.95v5.66H9.36V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zm1.78 13.02H3.56V9h3.56v11.45z" />
+                </svg>
+              </a>
+              <a href={SOCIAL_LINKS.instagram} target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                  <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+                </svg>
+              </a>
+            </div>
+          </div>
+          <div className="footer-col">
+            <h5>Producto</h5>
+            <ul>
+              <li>
+                <Link href="/#soluciones">Soluciones</Link>
+              </li>
+              <li>
+                <Link href="/#proceso">Proceso</Link>
+              </li>
+              <li>
+                <Link href="/#integraciones">Integraciones</Link>
+              </li>
+              <li>
+                <Link href="/#casos-exito">Casos de éxito</Link>
+              </li>
+            </ul>
+          </div>
+          <div className="footer-col">
+            <h5>Empresa</h5>
+            <ul>
+              <li>
+                <Link href="/#nosotros">Nosotros</Link>
+              </li>
+              <li>
+                <Link href="/#contacto">Contacto</Link>
+              </li>
+              <li>
+                <Link href="/#faq">FAQ</Link>
+              </li>
+              <li>
+                <BookingLink>Agendar Demo</BookingLink>
+              </li>
+            </ul>
+          </div>
+          <div className="footer-col">
+            <h5>Legal</h5>
+            <ul>
+              <li>
+                <Link href="/privacy">Privacidad</Link>
+              </li>
+              <li>
+                <Link href="/privacy#terminos">Términos</Link>
+              </li>
+              <li>
+                <Link href="/privacy#reembolsos">Reembolsos</Link>
+              </li>
+            </ul>
+          </div>
         </div>
-
-        <div className="flex justify-center gap-4 mb-8">
-          <a
-            href={SOCIAL_LINKS.facebook}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="w-10 h-10 border border-cyan-500/20 rounded-full flex items-center justify-center text-white/45 hover:border-cyan-400 hover:text-cyan-400 transition-all"
-            aria-label="Facebook"
-          >
-            <svg
-              className="w-5 h-5"
-              viewBox="0 0 24 24"
-              fill="currentColor"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path d="M22 12a10 10 0 1 0-11.6 9.9v-7h-2.1v-2.9h2.1V9.8c0-2.1 1.2-3.2 3.1-3.2.9 0 1.9.1 1.9.1v2.1h-1.1c-1 0-1.3.6-1.3 1.2v1.5h2.3l-.4 2.9h-1.9v7A10 10 0 0 0 22 12z" />
-            </svg>
-          </a>
-          <a
-            href={SOCIAL_LINKS.instagram}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="w-10 h-10 border border-cyan-500/20 rounded-full flex items-center justify-center text-white/45 hover:border-cyan-400 hover:text-cyan-400 transition-all"
-            aria-label="Instagram"
-          >
-            <svg
-              className="w-5 h-5"
-              viewBox="0 0 24 24"
-              fill="currentColor"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path d="M7 3h10a4 4 0 0 1 4 4v10a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V7a4 4 0 0 1 4-4zm10 2H7a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2zm-5 3.2A3.8 3.8 0 1 1 8.2 12 3.8 3.8 0 0 1 12 8.2zm0 2A1.8 1.8 0 1 0 13.8 12 1.8 1.8 0 0 0 12 10.2zm4.4-2.9a.9.9 0 1 1-.9.9.9.9 0 0 1 .9-.9z" />
-            </svg>
-          </a>
-          <a
-            href={SOCIAL_LINKS.whatsapp}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="w-10 h-10 border border-cyan-500/20 rounded-full flex items-center justify-center text-white/45 hover:border-cyan-400 hover:text-cyan-400 transition-all"
-            aria-label="WhatsApp"
-          >
-            <svg
-              className="w-5 h-5"
-              viewBox="0 0 448 512"
-              fill="currentColor"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path d="M380.9 97.1C339 55.1 283.2 32 223.9 32 101.8 32 3.3 130.5 3.3 252.6c0 45 11.7 88.7 33.9 127.3L0 480l103.9-35.3c36.1 19.7 76.8 30.1 118 30.1h.1c122 0 220.6-98.5 220.6-220.6 0-59.3-23.1-115-64.7-156.1zM223.9 438.7h-.1c-38.1 0-75.4-10.3-108.1-29.7l-7.8-4.6-61.6 20.9 20.7-60.1-5.1-8.1C43.5 321.4 33.5 287.5 33.5 252.6 33.6 147.8 119.1 62.3 224 62.3c50.9 0 98.7 19.8 134.7 55.8 36 36 55.8 83.8 55.8 134.7.1 104.9-85.4 190.9-190.6 190.9zm101.8-142.3c-5.6-2.8-33.2-16.4-38.3-18.3-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18.3-17.6 22-3.2 3.7-6.5 4.2-12 1.4-32.7-16.4-54.1-29.3-75.7-66.5-5.7-9.8 5.7-9.1 16.4-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2s-9.7 1.4-14.8 6.9c-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.7 57.4 2.8 3.7 39.2 60 95 84.2 13.3 5.7 23.7 9.1 31.8 11.7 13.4 4.3 25.6 3.7 35.2 2.2 10.7-1.6 33.2-13.5 37.9-26.6 4.7-13 4.7-24.1 3.3-26.6-1.4-2.5-5.1-3.9-10.7-6.7z" />
-            </svg>
-          </a>
+        <div className="footer-bottom">
+          <span>Copyright © {new Date().getFullYear()} AI Lead Shield · Todos los derechos reservados</span>
+          <span className="font-mono">v6.0 · Hecho en Querétaro, MX</span>
         </div>
-
-        <p className="text-xs uppercase tracking-wider text-white/45">
-          Copyright © {year} {SITE_NAME} — Todos los derechos reservados.
-        </p>
       </div>
     </footer>
   );

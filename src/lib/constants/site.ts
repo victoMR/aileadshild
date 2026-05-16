@@ -4,10 +4,12 @@ export const SITE_DESCRIPTION =
 export const SITE_URL = "https://aileadshield.com";
 
 export const NAV_LINKS = [
-  { href: "#servicios", label: "Servicios" },
-  { href: "#proceso", label: "Proceso" },
-  { href: "#nosotros", label: "Nosotros" },
-  { href: "#contacto", label: "Contacto" },
+  { href: "/#soluciones", label: "Soluciones" },
+  { href: "/#proceso", label: "Proceso" },
+  { href: "/#casos-exito", label: "Casos" },
+  { href: "/#integraciones", label: "Integraciones" },
+  { href: "/#faq", label: "FAQ" },
+  { href: "/#contacto", label: "Contacto" },
 ];
 
 export const BOOKING_URL =
@@ -18,6 +20,7 @@ export const SOCIAL_LINKS = {
   facebook:
     "https://www.facebook.com/profile.php?id=61559314284043",
   instagram: "https://www.instagram.com/automatizaciones_gohighlevel/",
+  linkedin: "https://www.linkedin.com/company/ai-lead-shield/",
 };
 
 export const CONTACT_INFO = {
@@ -32,5 +35,5 @@ export const BUSINESS_HOURS = [
   { day: "Jueves", hours: "09:00 — 18:00" },
   { day: "Viernes", hours: "09:00 — 18:00" },
   { day: "Sábado", hours: "09:00 — 14:00" },
-  { day: "Domingo", hours: "Cerrado" },
+  { day: "Domingo", hours: "IA Activa 24/7" },
 ];

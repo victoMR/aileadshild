@@ -1,93 +1,84 @@
 "use client";
 
-import { useState } from "react";
 import Link from "next/link";
-import { Button } from "./Button";
+import { useEffect, useState } from "react";
 import { NAV_LINKS } from "@/lib/constants/site";
-import { useBooking } from "./BookingContext";
+import { BookingLink } from "./BookingLink";
 
 export function Navigation() {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const { openBooking } = useBooking();
+  const [mobileOpen, setMobileOpen] = useState(false);
+
+  useEffect(() => {
+    const nav = document.getElementById("navbar");
+    if (!nav) return;
+    const onScroll = () => {
+      if (window.scrollY > 40) nav.classList.add("scrolled");
+      else nav.classList.remove("scrolled");
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  const closeMobile = () => {
+    setMobileOpen(false);
+  };
 
   return (
-    <>
-      <nav className="fixed top-0 left-0 right-0 z-100 flex items-center justify-between px-4 md:px-12 py-4 md:py-5 bg-black/88 backdrop-blur-2xl border-b border-cyan-500/20">
-        <Link
-          href="/"
-          className="font-black text-lg text-cyan-400 tracking-wider uppercase"
-        >
-          AI Lead Shield
+    <nav id="navbar" aria-label="Principal">
+      <div className="container">
+        <Link href="/" className="logo logo--text-only" onClick={closeMobile}>
+          AI LEAD<span>SHIELD</span>
         </Link>
-
-        {/* Desktop Menu */}
-        <ul className="hidden md:flex gap-8">
+        <ul className="nav-links">
           {NAV_LINKS.map((link) => (
             <li key={link.href}>
-              <a
-                href={link.href}
-                className="text-white/45 text-sm uppercase tracking-widest hover:text-white transition-colors"
-              >
-                {link.label}
-              </a>
+              <Link href={link.href}>{link.label}</Link>
             </li>
           ))}
         </ul>
-
-        <button
-          onClick={openBooking}
-          className="hidden md:inline-block px-6 py-2 bg-gradient-to-r from-cyan-400 to-emerald-400 text-black font-bold rounded-full hover:shadow-lg hover:scale-105 transition-all"
-        >
-          Agendar llamada
-        </button>
-
-        {/* Mobile Menu Button */}
-        <button
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          className="md:hidden flex flex-col gap-1.5 cursor-pointer"
-        >
-          <span className={`w-6 h-1 bg-white/45 transition-all duration-300 ${mobileMenuOpen ? "rotate-45 translate-y-2" : ""}`}></span>
-          <span className={`w-6 h-1 bg-white/45 transition-all duration-300 ${mobileMenuOpen ? "opacity-0" : ""}`}></span>
-          <span className={`w-6 h-1 bg-white/45 transition-all duration-300 ${mobileMenuOpen ? "-rotate-45 -translate-y-2" : ""}`}></span>
-        </button>
-      </nav>
-
-      {/* Mobile Menu */}
-      {mobileMenuOpen && (
-        <div className="fixed inset-0 z-[99] bg-black flex flex-col items-center justify-center gap-6 pt-20 animate-fadeIn">
+        <div className="nav-cta">
+          <BookingLink className="btn btn-primary btn-sm">
+            Agendar Llamada
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12" />
+              <polyline points="12 5 19 12 12 19" />
+            </svg>
+          </BookingLink>
           <button
-            onClick={() => setMobileMenuOpen(false)}
-            className="absolute top-6 right-6 text-white text-lg font-bold transition-transform hover:rotate-90 duration-300"
+            type="button"
+            className="mobile-toggle"
+            aria-expanded={mobileOpen}
+            aria-controls="navMobile"
+            aria-label="Menú"
+            onClick={() => setMobileOpen((o) => !o)}
           >
-            ✕
-          </button>
-          {NAV_LINKS.map((link, idx) => (
-            <a
-              key={link.href}
-              href={link.href}
-              onClick={() => setMobileMenuOpen(false)}
-              className="text-white text-3xl font-black uppercase hover:text-cyan-400 transition-colors animate-fadeIn"
-              style={{
-                animation: `fadeIn 0.3s ease-out ${0.1 * idx}s backwards`,
-              }}
-            >
-              {link.label}
-            </a>
-          ))}
-          <button
-            onClick={() => {
-              openBooking();
-              setMobileMenuOpen(false);
-            }}
-            className="px-6 py-3 bg-gradient-to-r from-cyan-400 to-emerald-400 text-black font-bold rounded-full hover:shadow-lg hover:scale-105 transition-all animate-fadeIn"
-            style={{
-              animation: `fadeIn 0.3s ease-out ${0.1 * NAV_LINKS.length}s backwards`,
-            }}
-          >
-            Agendar llamada
+            <svg className="icon-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <line x1="3" y1="6" x2="21" y2="6" />
+              <line x1="3" y1="12" x2="21" y2="12" />
+              <line x1="3" y1="18" x2="21" y2="18" />
+            </svg>
+            <svg className="icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <line x1="18" y1="6" x2="6" y2="18" />
+              <line x1="6" y1="6" x2="18" y2="18" />
+            </svg>
           </button>
         </div>
-      )}
-    </>
+      </div>
+      <div className={`nav-mobile ${mobileOpen ? "open" : ""}`} id="navMobile">
+        <ul>
+          {NAV_LINKS.map((link) => (
+            <li key={link.href}>
+              <Link href={link.href} onClick={closeMobile}>
+                {link.label}
+              </Link>
+            </li>
+          ))}
+        </ul>
+        <BookingLink className="btn btn-primary" onClick={closeMobile}>
+          Agendar Llamada
+        </BookingLink>
+      </div>
+    </nav>
   );
 }

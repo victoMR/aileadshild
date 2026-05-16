@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@import "../styles/aileadshield-v6.css";
 
 @layer utilities {
   .z-100 {
@@ -29,35 +30,42 @@
   }
 }
 
-/* Smooth scroll behavior */
 html {
   scroll-behavior: smooth;
+  color-scheme: dark;
 }
 
-/* Font optimization */
 body {
   font-family: var(--font-inter), system-ui, -apple-system, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Headings with Syne */
 h1,
 h2,
 h3,
 h4,
 h5,
 h6 {
-  font-family: var(--font-syne), system-ui, -apple-system, sans-serif;
+  font-family: var(--font-outfit), system-ui, sans-serif;
 }
 
-/* Remove default link styling */
 a {
   color: inherit;
   text-decoration: none;
 }
 
-/* Smooth transitions */
 * {
   @apply transition-colors duration-300;
+}
+
+button.modal-backdrop {
+  appearance: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+  display: block;
 }

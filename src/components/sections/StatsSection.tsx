@@ -1,22 +1,34 @@
-import { STATS } from "@/lib/constants/content";
-
 export function StatsSection() {
   return (
-    <div className="bg-gradient-to-r from-cyan-500 via-emerald-500 to-cyan-600 py-16 md:py-24 lg:py-32 px-4 md:px-8 lg:px-12">
-      <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-          {STATS.map((stat, idx) => (
-            <div key={idx}>
-              <div className="text-4xl md:text-5xl lg:text-6xl font-black text-black mb-2">
-                {stat.value}
-              </div>
-              <p className="text-sm md:text-base text-black/65 font-medium">
-                {stat.label}
-              </p>
+    <aside className="stats">
+      <div className="container">
+        <div className="stats-grid reveal">
+          <div className="stat-card">
+            <div className="stat-val" data-count="3" data-suffix="×">
+              0×
             </div>
-          ))}
+            <div className="stat-label">Más leads calificados</div>
+          </div>
+          <div className="stat-card">
+            <div className="stat-val" data-count="1" data-suffix="min">
+              0min
+            </div>
+            <div className="stat-label">Respuesta garantizada</div>
+          </div>
+          <div className="stat-card">
+            <div className="stat-val" data-count="40" data-suffix="%">
+              0%
+            </div>
+            <div className="stat-label">Aumento en conversiones</div>
+          </div>
+          <div className="stat-card">
+            <div className="stat-val" data-count="24" data-suffix="/7">
+              0/7
+            </div>
+            <div className="stat-label">Atención sin pausa</div>
+          </div>
         </div>
       </div>
-    </div>
+    </aside>
   );
 }
